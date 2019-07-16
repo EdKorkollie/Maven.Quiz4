@@ -14,13 +14,16 @@ public class Food {
     public Food() {
         spices = new ArrayList<>();
     }
+
     public List<Spice> getAllSpices() {
         return spices;
     }
 
     public <SpiceType extends Class<? extends Spice>> Map<SpiceType, Integer> getSpiceCount() {
+
         Map<SpiceType, Integer> output  = new HashMap<>();
         for(int i = 0; i<spices.size(); i++) {
+
             SpiceType st = (SpiceType) spices.get(i).getClass();
             if(output.containsKey(st)) {
                 Integer value = output.get(st);
